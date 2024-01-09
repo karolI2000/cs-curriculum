@@ -9,9 +9,12 @@ using UnityEditor;
 public class HUD : MonoBehaviour
 {
     public static HUD hud;
-    public int coins;
+    public int coin;
     public int health;
     public int maxHealth;
+
+    public CollectCoin CollectCoins;
+    public HealthManager HealthManager;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
 
@@ -31,15 +34,15 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        coins = 0;
-        maxHealth = 5;
+        coin = 0;
+        maxHealth = 10;
         health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        coinText.text = ("Coins: ") + coins;
+        coinText.text = ("Coins: ") + coin;
         healthText.text = ("Health: ") + health;
     }
 }
