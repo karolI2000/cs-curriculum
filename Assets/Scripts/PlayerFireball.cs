@@ -7,14 +7,14 @@ public class PlayerFireball : MonoBehaviour
     public UnityEngine.Vector3 target;
     private float timer;
     private float originalTimer;
-    private GameObject player;
+    private GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Enemy");
+        enemy = GameObject.FindWithTag("Enemy");
         originalTimer = 3;
         timer = originalTimer;
-        target = player.transform.position;
+        target = enemy.transform.position;
     }
 
     // Update is called once per frame

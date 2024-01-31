@@ -38,6 +38,10 @@ public class HealthManager : MonoBehaviour
         {
             LoseHealth(2);
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            LoseHealth(3);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -10,6 +10,8 @@ TagManager:
   - Spikes
   - HealthPotion
   - Turret_Projectile
+  - Turret
+  - Player_Projectile
   layers:
   - Default
   - TransparentFX
