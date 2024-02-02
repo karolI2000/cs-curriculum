@@ -1,24 +1,26 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class EnemyHealthManager : MonoBehaviour
 {
-    private HUD hud;
+    public int MaxEnemyHealth;
+    public int EnemyHealth;
     private bool iframes;
-    
     public float timer;
     public float originalTimer;
     
     // Start is called before the first frame update
     void Start()
     {
-        hud = GameObject.FindObjectOfType<HUD>();
+        MaxEnemyHealth = 10;
+        EnemyHealth = MaxEnemyHealth;
+        iframes = false;
         originalTimer = 1.5f;
         timer = originalTimer;
-        iframes = false;
     }
+    // Update is called once per frame
     void Update()
     {
         if (iframes)
@@ -31,28 +33,13 @@ public class HealthManager : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Spikes"))
-        {
-            LoseHealth(2);
-        }
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            LoseHealth(3);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("HealthPotion"))
+        if (other.gameObject.CompareTag("Player_Projectile"))
         {
-            AddHealth(2);
+            LoseHealth(4);
             other.gameObject.SetActive(false);
-        }
-        if (other.gameObject.CompareTag("Turret_Projectile"))
-        {
-            LoseHealth(1);
-            other.gameObject.SetActive(false);
+            Debug.Log("Enemy Hit");
         }
     }
     void LoseHealth(int amount)
@@ -60,15 +47,11 @@ public class HealthManager : MonoBehaviour
         if (!iframes)
         {
             iframes = true;
-            hud.health -= amount;
+            EnemyHealth -= amount;
         }
-        if (hud.health<=0)
+        if (EnemyHealth <= 0)
         {
             Destroy(gameObject);
         }
-    }
-    void AddHealth(int amount)
-    {
-        hud.health += amount;
     }
 }
