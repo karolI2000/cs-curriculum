@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        walkSpeed = 4;
+        walkSpeed = 2;
         OnGround = true;
     }
 

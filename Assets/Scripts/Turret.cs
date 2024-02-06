@@ -48,7 +48,7 @@ public class Turret : MonoBehaviour
          {
              target = null;
              firingDelay = originalFiringDelay;
-             Debug.Log("Targetting Stopped");
+             Debug.Log("Targetting Player Stopped");
          }
      }
 }

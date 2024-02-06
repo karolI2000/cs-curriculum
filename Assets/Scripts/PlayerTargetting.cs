@@ -34,7 +34,7 @@ public class PlayerTargetting : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             target = other;
             Debug.Log("Targetting Enemy");
@@ -43,11 +43,11 @@ public class PlayerTargetting : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             target = null;
             firingDelay = originalFiringDelay;
-            Debug.Log("Targetting Stopped");
+            Debug.Log("Targetting Enemy Stopped");
         }
     }
 }

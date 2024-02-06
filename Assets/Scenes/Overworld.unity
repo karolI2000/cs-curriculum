@@ -40846,7 +40846,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
 --- !u!1001 &867990190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86105,10 +86105,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1750497386}
-    - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1750497390}
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
@@ -86118,6 +86114,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1750497395}
+    - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750497396}
   m_SourcePrefab: {fileID: 100100000, guid: 34448014912494d33b041af48acd0291, type: 3}
 --- !u!1 &1750497384 stripped
 GameObject:
@@ -86125,23 +86125,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1750497383}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1750497386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750497384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66885a75572474c1e9df281d22353604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 0
-  xVector: 0
-  xDirection: 0
-  yVector: 0
-  yDirection: 0
 --- !u!114 &1750497390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86183,6 +86166,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireball: {fileID: 2811162638711977749, guid: 45adc756b8cc349b9823d9aa169094b1,
     type: 3}
+--- !u!114 &1750497396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd397447d0764ce698b2ce034a80d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Overworld: 0
+  walkSpeed: 0
+  xVector: 0
+  xDirection: 0
+  yVector: 0
+  yDirection: 0
+  OnGround: 0
+  RaycastLength: 1
 --- !u!4 &1824028495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1641903180064529503, guid: fbdc99957549444bfba281e61d9d218c,

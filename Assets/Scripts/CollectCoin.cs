@@ -25,6 +25,7 @@ public class CollectCoin : MonoBehaviour
         {
             hud.coin += 1;
             other.gameObject.SetActive(false);
+            Debug.Log("COIN!!");
         }
     }
 }

@@ -36,10 +36,12 @@ public class HealthManager : MonoBehaviour
         if (other.gameObject.CompareTag("Spikes"))
         {
             LoseHealth(2);
+            Debug.Log("Player Spiked");
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
             LoseHealth(3);
+            Debug.Log("Player Attacked");
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,11 +50,13 @@ public class HealthManager : MonoBehaviour
         {
             AddHealth(2);
             other.gameObject.SetActive(false);
+            Debug.Log("Health Potion");
         }
         if (other.gameObject.CompareTag("Turret_Projectile"))
         {
             LoseHealth(1);
             other.gameObject.SetActive(false);
+            Debug.Log("Player Shot");
         }
     }
     void LoseHealth(int amount)
