@@ -20,8 +20,8 @@ public class EnemyMovement : MonoBehaviour{
     void Update()
     {
         if (target != null)
-        {
-            if (IsOn)
+        { 
+            if (IsOn=true)
             {
                 transform.position=Vector2.MoveTowards(transform.position,target.gameObject.transform.position,EnemySpeed*Time.deltaTime);
             }
@@ -30,19 +30,22 @@ public class EnemyMovement : MonoBehaviour{
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.CompareTag("Player"))
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.transform.GetChild(0).gameObject.CompareTag("Player"))
         {
             target = other;
             IsOn = true;
             Debug.Log("Following Player");
         }
     }
+    
+    
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.transform.GetChild(0).gameObject.CompareTag("Player"))
         {
-            target = other;
+            target = null;
             IsOn = false;
             Debug.Log("Following Player Stopped");
         }

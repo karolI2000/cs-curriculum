@@ -6,27 +6,45 @@ using UnityEngine;
 public class CollectCoin : MonoBehaviour
 {
     private HUD hud;
-    
     public int coin;
+    private bool iframes;
+    public float timer;
+    public float originalTimer;
+    
     // Start is called before the first frame update
     void Start()
     {
         hud = GameObject.FindObjectOfType<HUD>();
+        originalTimer = 0.5f;
+        timer = originalTimer;
+        iframes = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
+        if (iframes)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                iframes = false;
+                timer = originalTimer;
+            }
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("Coin"))
         {
-            hud.coin += 1;
+            AddCoin(1);
             other.gameObject.SetActive(false);
-            Debug.Log("COIN!!");
         }
+    }
+
+    void AddCoin(int amount)
+    {
+        hud.coin += amount;
     }
 }
 

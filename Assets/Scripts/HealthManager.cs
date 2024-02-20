@@ -7,7 +7,6 @@ public class HealthManager : MonoBehaviour
 {
     private HUD hud;
     private bool iframes;
-    
     public float timer;
     public float originalTimer;
     
@@ -15,7 +14,7 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         hud = GameObject.FindObjectOfType<HUD>();
-        originalTimer = 1.5f;
+        originalTimer = 0.5f;
         timer = originalTimer;
         iframes = false;
     }
@@ -33,32 +32,32 @@ public class HealthManager : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("Spikes"))
         {
             LoseHealth(2);
-            Debug.Log("Player Spiked");
         }
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.transform.GetChild(0).gameObject.CompareTag("Enemy"))
         {
             LoseHealth(3);
-            Debug.Log("Player Attacked");
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    
+     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("HealthPotion"))
         {
             AddHealth(2);
             other.gameObject.SetActive(false);
-            Debug.Log("Health Potion");
         }
         if (other.gameObject.CompareTag("Turret_Projectile"))
         {
             LoseHealth(1);
             other.gameObject.SetActive(false);
-            Debug.Log("Player Shot");
         }
     }
+    
     void LoseHealth(int amount)
     {
         if (!iframes)

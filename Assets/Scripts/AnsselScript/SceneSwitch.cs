@@ -14,12 +14,13 @@ public class SceneSwitch : MonoBehaviour
     static int sceneSwitchedFrom = -1;
     static RuntimeAnimatorController playerAnimator;
     int currentScene;
+    [SerializeField] 
     GameObject player;
 
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player").transform.parent.gameObject;
 
 
         if (sceneSwitchedFrom > -1)
@@ -57,8 +58,11 @@ public class SceneSwitch : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        print("hit something");
+        print(collision.gameObject.name);
+        if (collision.gameObject.transform.GetChild(0).gameObject.CompareTag("Player"))
         {
+            print("hit the player");
             sceneSwitchedFrom = currentScene;
             playerAnimator = player.GetComponentInChildren<Animator>().runtimeAnimatorController;
             SceneManager.LoadScene(scene);

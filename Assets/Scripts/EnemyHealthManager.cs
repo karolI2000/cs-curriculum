@@ -17,7 +17,7 @@ public class EnemyHealthManager : MonoBehaviour
         MaxEnemyHealth = 10;
         EnemyHealth = MaxEnemyHealth;
         iframes = false;
-        originalTimer = 1.5f;
+        originalTimer = 0.5f;
         timer = originalTimer;
     }
     // Update is called once per frame
@@ -33,11 +33,11 @@ public class EnemyHealthManager : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player_Projectile"))
         {
-            LoseHealth(4);
+            LoseHealth(2);
             other.gameObject.SetActive(false);
             Debug.Log("Enemy Hit");
         }

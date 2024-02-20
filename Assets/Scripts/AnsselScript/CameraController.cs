@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player").transform.parent.gameObject;
+        
         offset3D = new Vector3(offset.x, offset.y, -10f);
     }
 
